@@ -3,6 +3,7 @@ package com.example.globalcomapp;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -43,12 +44,12 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
         this.getWritableDatabase().insert("user",null,values);
     }
 
-    public Cursor ConsultaUserPass(String user, String pass){
+    public Cursor ConsultaUserPass(String user, String pass)throws SQLException {
         Cursor mcursor = null;
         mcursor = this.getReadableDatabase().query("user",new String[]{"id","nombre","pass","correo"},
-                "correo like '"+user+"' "+"and pass like "+pass+"'",null,null,
+                "correo like '"+user+"' "+"and pass like '"+pass+"'",null,null,
                 null,null);
 
-        return  null;
+        return  mcursor;
     }
 }

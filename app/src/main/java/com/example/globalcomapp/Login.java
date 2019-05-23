@@ -33,8 +33,6 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
-
                 Cursor cursor = helper.ConsultaUserPass(correo.getText().toString(),pass.getText().toString());
 
                 if(cursor.getCount() > 0){
