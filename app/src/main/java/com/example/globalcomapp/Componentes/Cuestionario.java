@@ -4,24 +4,24 @@ import java.util.ArrayList;
 
 public class Cuestionario {
 
-    ArrayList<Pregunta> preguntas;
+    ArrayList<Pregunta> pregunta;
     private Integer id;
     private String titulo;
     private String subTitulo;
 
     public Cuestionario(ArrayList<Pregunta> preguntas, Integer id, String titulo, String subTitulo) {
-        this.preguntas = preguntas;
+        this.pregunta = preguntas;
         this.id = id;
         this.titulo = titulo;
         this.subTitulo = subTitulo;
     }
 
     public ArrayList<Pregunta> getPreguntas() {
-        return preguntas;
+        return pregunta;
     }
 
     public void setPreguntas(ArrayList<Pregunta> preguntas) {
-        this.preguntas = preguntas;
+        this.pregunta = preguntas;
     }
 
     public Integer getId() {
