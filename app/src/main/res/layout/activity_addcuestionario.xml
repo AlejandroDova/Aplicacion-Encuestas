@@ -6,4 +6,55 @@
     android:layout_height="match_parent"
     tools:context=".ADDCuestionario">
 
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/content_cuestionario"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <Button
+        android:id="@+id/buttonGuardar"
+        android:layout_width="138dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="@+id/include"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:layout_width="281dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/buttonGuardar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/buttonPOM"
+            android:layout_width="138dp"
+            android:layout_height="match_parent"
+            android:textSize="11dp"
+            android:text="Preguntas de opción múltíple" />
+
+        <Button
+            android:id="@+id/buttonPVF"
+            android:layout_width="138dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="60dp"
+            android:layout_marginRight="60dp"
+            android:text="Preguntas V/F" />
+    </LinearLayout>
+
+
 </android.support.constraint.ConstraintLayout>

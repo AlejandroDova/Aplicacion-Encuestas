@@ -2,7 +2,7 @@ package com.example.globalcomapp.Componentes;
 
 import java.util.ArrayList;
 
-class Pregunta {
+public class Pregunta {
 
     private Integer id;
     private String titulo;
