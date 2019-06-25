@@ -30,12 +30,10 @@ public class MyAdapterPreguntas extends RecyclerView.Adapter<MyAdapterPreguntas.
     @Override
     public void onBindViewHolder(@NonNull ViewHolderPreguntas holder, int position) {
         holder.titulo.setText(listPregunta.get(position).getTitulo());
-        holder.r1.setText(listPregunta.get(position).getRespuestas().get(0).getTextRespuesta());
-        holder.r2.setText(listPregunta.get(position).getRespuestas().get(1).getTextRespuesta());
-        holder.r3.setText(listPregunta.get(position).getRespuestas().get(2).getTextRespuesta());
-        holder.r4.setText(listPregunta.get(position).getRespuestas().get(3).getTextRespuesta());
-
-
+        holder.r1.setText(listPregunta.get(position).getRespuesta1());
+        holder.r2.setText(listPregunta.get(position).getRespuesta2());
+        holder.r3.setText(listPregunta.get(position).getRespuesta3());
+        holder.r4.setText(listPregunta.get(position).getRespuesta4());
     }
 
     @Override
