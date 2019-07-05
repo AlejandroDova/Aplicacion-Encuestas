@@ -41,7 +41,6 @@ public class PreguntaVF extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(),ADDCuestionario.class);
                 intent.putExtra("titulo",preguntavf.getText().toString());
                 startActivity(intent);
-                finish();
             }
         });
     }

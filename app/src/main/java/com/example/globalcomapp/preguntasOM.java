@@ -29,7 +29,6 @@ public class preguntasOM extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if(titulo.getText().toString().isEmpty() || respuesta1.getText().toString().isEmpty() || respuesta2.getText().toString().isEmpty()){
                     Toast.makeText(getApplicationContext(),"Llena el campo titulo y la respuestas uno y dos como requisito",
                             Toast.LENGTH_LONG).show();
@@ -41,7 +40,6 @@ public class preguntasOM extends AppCompatActivity {
                     intent.putExtra("respuesta3",respuesta3.getText().toString());
                     intent.putExtra("respuesta4",respuesta4.getText().toString());
                     startActivity(intent);
-                    finish();
                 }
             }
         });

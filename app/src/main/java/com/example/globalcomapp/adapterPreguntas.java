@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 public class adapterPreguntas extends ArrayAdapter<Pregunta> {
 
+
     private static class ViewHolder {
         TextView titulo;
         RadioButton r1;
@@ -53,10 +54,10 @@ public class adapterPreguntas extends ArrayAdapter<Pregunta> {
         // Populate the data from the data object via the viewHolder object
         // into the template view.
         viewHolder.titulo.setText(pregunta.getTitulo());
-        viewHolder.r1.setText(pregunta.getRespuesta1());
-        viewHolder.r2.setText(pregunta.getRespuesta2());
-        viewHolder.r3.setText(pregunta.getRespuesta3());
-        viewHolder.r4.setText(pregunta.getRespuesta4());
+        viewHolder.r1.setText(pregunta.getRespuesta4());
+        viewHolder.r2.setText(pregunta.getRespuesta3());
+        viewHolder.r3.setText(pregunta.getRespuesta2());
+        viewHolder.r4.setText(pregunta.getRespuesta1());
 
         // Return the completed view to render on screen
         return convertView;
