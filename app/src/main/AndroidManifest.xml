@@ -11,9 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ADDcuestionario2"></activity>
-        <activity android:name=".preguntasOM" />
-        <activity android:name=".PreguntaVF" />
+        <activity android:name=".Encuesta"></activity>
+        <activity android:name=".ADDcuestionario2" />
         <activity android:name=".ADDCuestionario" />
         <activity android:name=".Registro" />
         <activity android:name=".Login">

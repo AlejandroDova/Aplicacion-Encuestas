@@ -1,27 +1,20 @@
 package com.example.globalcomapp.Componentes;
 
-import java.util.ArrayList;
-
 public class Cuestionario {
 
-    ArrayList<Pregunta> pregunta;
     private Integer id;
     private String titulo;
     private String subTitulo;
+    private String escuela;
+    private String jPreguntas;
 
-    public Cuestionario(ArrayList<Pregunta> preguntas, Integer id, String titulo, String subTitulo) {
-        this.pregunta = preguntas;
+
+    public Cuestionario(Integer id, String titulo, String subTitulo, String escuela, String jPreguntas) {
         this.id = id;
         this.titulo = titulo;
         this.subTitulo = subTitulo;
-    }
-
-    public ArrayList<Pregunta> getPreguntas() {
-        return pregunta;
-    }
-
-    public void setPreguntas(ArrayList<Pregunta> preguntas) {
-        this.pregunta = preguntas;
+        this.escuela = escuela;
+        this.jPreguntas = jPreguntas;
     }
 
     public Integer getId() {
@@ -46,6 +39,22 @@ public class Cuestionario {
 
     public void setSubTitulo(String subTitulo) {
         this.subTitulo = subTitulo;
+    }
+
+    public String getEscuela() {
+        return escuela;
+    }
+
+    public void setEscuela(String escuela) {
+        this.escuela = escuela;
+    }
+
+    public String getjPreguntas() {
+        return jPreguntas;
+    }
+
+    public void setjPreguntas(String jPreguntas) {
+        this.jPreguntas = jPreguntas;
     }
 }
 

@@ -3,6 +3,7 @@ package com.example.globalcomapp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -16,15 +17,6 @@ import com.android.volley.toolbox.Volley;
 import com.example.globalcomapp.Componentes.Pregunta;
 import org.json.JSONObject;
 import com.google.gson.Gson;
-import android.widget.Toast;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-
-import org.json.JSONObject;
-
 
 import java.util.ArrayList;
 
@@ -35,7 +27,6 @@ public class ADDcuestionario2 extends AppCompatActivity {
     Button agregarPregunta,guardarCuestionario,vf;
     EditText r1,r2,r3,r4,titulo;
     String tituloC,subTituloC;
-    RequestQueue requestQueue;
 
 
     // implement Gson librery (implament in build.gradle)
@@ -63,8 +54,6 @@ public class ADDcuestionario2 extends AppCompatActivity {
         Bundle datos = this.getIntent().getExtras();
           tituloC = datos.getString("titulo");
           subTituloC = datos.getString("subTitulo");
-
-        Toast.makeText(getApplicationContext(),"el resultado es: "+tituloC,Toast.LENGTH_LONG).show();
 
         listPregunta.add(new Pregunta("Ejemplo", "ejemplo", "ejemplo", "ejemplo", "ejemplo"));
 
@@ -110,6 +99,13 @@ public class ADDcuestionario2 extends AppCompatActivity {
                 r2.setText("Falso");
                 r3.setText("");
                 r4.setText("");
+            }
+        });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(),"SE PICA",Toast.LENGTH_LONG).show();
             }
         });
     }
