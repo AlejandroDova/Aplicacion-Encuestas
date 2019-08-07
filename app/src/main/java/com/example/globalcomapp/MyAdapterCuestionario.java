@@ -68,6 +68,7 @@ public class MyAdapterCuestionario extends ArrayAdapter<Cuestionario> {
                 intent.putExtra("titulo",titulo);
                 intent.putExtra("subtitulo",subtitulo);
                 intent.putExtra("json",json);
+
                 /// do same for other values
                 getContext().startActivity(intent);
 
