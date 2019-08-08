@@ -47,7 +47,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        preguntas.add(new Pregunta("prueba1","prueba1","pruieba1","prueba1","prueba1"));
         preguntas.add(new Pregunta("prueba2","prueba2","pruieba2","prueba2","prueba2"));
+        preguntas.add(new Pregunta("prueba3","prueba3","pruieba3","prueba3","prueba3"));
 
 
         gson = new Gson();
