@@ -1,5 +1,6 @@
 package com.example.globalcomapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -48,9 +49,6 @@ public class ADDcuestionario2 extends AppCompatActivity {
         r3 = findViewById(R.id.txtrespuesta3);
         r4 = findViewById(R.id.txtrespuesta4);
 
-
-        gson = new Gson();
-
         Bundle datos = this.getIntent().getExtras();
           tituloC = datos.getString("titulo");
           subTituloC = datos.getString("subTitulo");
@@ -84,11 +82,15 @@ public class ADDcuestionario2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                gson = new Gson();
                 String json = gson.toJson(listPregunta);
                 String fecha = "04/09/2019";
                 String autor = "alejandro";
 //                cargarWebservice("http://192.168.0.5/ejemploDBremota/jsonregistropregunta.php?id=3&pregunta=Tegusta&preguntax=si");
-                cargarWebservice("http://10.1.3.140/ejemploDBremota/registrarCuestionario.php?idCuestionario="+0+"&titulo="+tituloC+"&subtitulo="+subTituloC+"&universidad="+1+"&fecha="+fecha+"&autor="+autor+"&preguntas="+gson+"&tvr="+0);
+                cargarWebservice("http://192.168.0.4/ejemploDBremota/registrarCuestionario.php?idCuestionario="+0+"&titulo="+tituloC+"&subtitulo="+subTituloC+"&universidad="+1+"&fecha="+fecha+"&autor="+autor+"&preguntas="+json+"&tvr="+0);
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 

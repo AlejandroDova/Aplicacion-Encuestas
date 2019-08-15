@@ -14,10 +14,24 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.globalcomapp.Componentes.Cuestionario;
 import com.example.globalcomapp.Componentes.Pregunta;
 import com.google.gson.Gson;
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonObject;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -44,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intetn = new Intent(getApplicationContext(),ADDCuestionario.class);
                 startActivity(intetn);
+                finish();
             }
         });
 
@@ -57,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
         listCuestionario.add(new Cuestionario(1,"titulo","subtitulo","escuela",json));
         listCuestionario.add(new Cuestionario(1,"titulo2","subtitulo2","escuela2",json));
+        cargarWebservice("http://192.168.0.4/ejemploDBremota/consultaCuestionarios.php");
 
         MyAdapterCuestionario adapterCuestionario = new MyAdapterCuestionario(this,listCuestionario);
         listView.setAdapter(adapterCuestionario);
@@ -93,4 +109,47 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    //intento de consulta de cuestionarios
+
+    private void cargarWebservice(String url) {
+
+        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+// prepare the Request
+        JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>()
+                {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // display response
+                        JSONArray jsonArray =response.optJSONArray("cuestionario");
+
+                        try{
+                            for (int i =0 ;i<jsonArray.length();i++){
+                                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                listCuestionario.add( new Cuestionario(jsonObject.optInt("idCuestionario"),
+                                        jsonObject.optString("titulo"),
+                                        jsonObject.optString("subtitulo"),
+                                        jsonObject.optString("universidad"),
+                                        jsonObject.optString("preguntas")));
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(),"Error en la conexion",Toast.LENGTH_LONG).show();
+                    }
+                }
+        );
+// add it to the RequestQueue
+        queue.add(getRequest);
+
+    }
+
+
 }

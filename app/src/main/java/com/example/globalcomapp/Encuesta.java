@@ -1,5 +1,6 @@
 package com.example.globalcomapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -82,9 +83,7 @@ public class Encuesta extends AppCompatActivity {
         r3.setText(preguntas.get(0).getRespuesta3());
         r4.setText(preguntas.get(0).getRespuesta4());
 
-        for (Pregunta contact : preguntas){
-            Toast.makeText(getApplicationContext(),"Contact Details"+contact.getTitulo() + "-" + contact.getRespuesta1() + "-" + contact.getRespuesta2(),Toast.LENGTH_LONG).show();
-        }
+
 
         buttonGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,19 +97,19 @@ public class Encuesta extends AppCompatActivity {
                         switch (id) {
                             case R.id.radioButtonE1:
                                 agregarRespuesta(r1);
-
+                                r1.setChecked(false);
                                 break;
                             case R.id.radioButtonE2:
                                 agregarRespuesta(r2);
-
+                                r2.setChecked(false);
                                 break;
                             case R.id.radioButtonE3:
                                 agregarRespuesta(r3);
-
+                                r3.setChecked(false);
                                 break;
                             case R.id.radioButtonE4:
                                 agregarRespuesta(r4);
-
+                                r4.setChecked(false);
                                 break;
                         }
 
@@ -130,7 +129,10 @@ public class Encuesta extends AppCompatActivity {
                     }else{
                         //guardar respuestas
                         String json = gsonrespuestas.toJson(respuestas);
-                        cargarWebservice("http://192.168.0.8/ejemploDBremota/agregarRespuesta.php?id=0&titulo="+tituloC+"&subtitulo="+subtituloC+"&respuestas="+json);
+                        cargarWebservice("http://192.168.0.4/ejemploDBremota/agregarRespuesta.php?id=0&titulo="+tituloC+"&subtitulo="+subtituloC+"&respuestas="+json);
+                        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                        startActivity(intent);
+                        finish();
                     }
 
                 }else{
@@ -152,6 +154,7 @@ public class Encuesta extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         // display response
                         Toast.makeText(getApplicationContext(),"Operacion exitosa",Toast.LENGTH_LONG).show();
+
                     }
                 },
                 new Response.ErrorListener()
