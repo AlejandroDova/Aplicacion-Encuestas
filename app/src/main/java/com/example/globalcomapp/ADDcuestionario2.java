@@ -53,8 +53,6 @@ public class ADDcuestionario2 extends AppCompatActivity {
           tituloC = datos.getString("titulo");
           subTituloC = datos.getString("subTitulo");
 
-        listPregunta.add(new Pregunta("Ejemplo", "ejemplo", "ejemplo", "ejemplo", "ejemplo"));
-
         adapterPreguntas adapterPreguntas = new adapterPreguntas(getApplicationContext(),listPregunta);
         listView.setAdapter(adapterPreguntas);
 
