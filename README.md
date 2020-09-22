@@ -1,4 +1,3 @@
-# globalcomApp
-Trabajo estadias
+# Encuestas
 
 Repositorio GitHub creado
